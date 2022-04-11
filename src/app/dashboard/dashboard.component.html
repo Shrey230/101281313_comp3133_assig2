@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>{{ title }}</h1>
+    <span class="spacer"></span>
+    <button mat-button (click)="onLogout()">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container class="full-sidenav">
+  <mat-sidenav mode="side" opened class="left-sidenav">
+    <mat-sidenav-container class="sidenav-component">
+      <mat-list>
+        <a (click)="onClick(0)">
+          <mat-list-item> Hotels </mat-list-item>
+        </a>
+        <a (click)="onClick(1)">
+          <mat-list-item> My Bookings </mat-list-item>
+        </a>
+      </mat-list>
+    </mat-sidenav-container>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div [ngSwitch]="sideList">
+      <div *ngSwitchCase="0">
+        <app-hotels></app-hotels>
+      </div>
+      <div *ngSwitchCase="1">
+        <app-bookings></app-bookings>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

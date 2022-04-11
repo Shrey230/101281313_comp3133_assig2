@@ -1,0 +1,18 @@
+<h1>Add Booking</h1>
+<form #addBookingForm="ngForm" (ngSubmit)="onSubmit(addBookingForm)">
+  <mat-form-field appearance="fill">
+    <mat-label>Choose Check-in Time </mat-label>
+    <input matInput ngModel name="checkInDate" [matDatepicker]="checkin" />
+    <mat-datepicker-toggle matSuffix [for]="checkin"></mat-datepicker-toggle>
+    <mat-datepicker #checkin></mat-datepicker>
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="fill">
+    <mat-label>Choose Check-out Time </mat-label>
+    <input matInput ngModel name="checkOutDate" [matDatepicker]="checkout" />
+    <mat-datepicker-toggle matSuffix [for]="checkout"></mat-datepicker-toggle>
+    <mat-datepicker #checkout></mat-datepicker>
+  </mat-form-field>
+  <br />
+  <button mat-raised-button color="primary" class="add-button">Add</button>
+</form>

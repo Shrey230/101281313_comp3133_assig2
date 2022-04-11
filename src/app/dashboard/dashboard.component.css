@@ -1,0 +1,15 @@
+.left-sidenav{
+  width: 10%;
+}
+
+.full-sidenav{
+  height: 100%;
+}
+
+.spacer{
+  flex: 1 1 auto;
+}
+
+mat-list-item:hover{
+  color: gray;
+}

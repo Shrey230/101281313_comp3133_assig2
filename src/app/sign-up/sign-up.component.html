@@ -1,0 +1,67 @@
+<div class="mat-card-cover">
+  <mat-card class="login-box">
+    <!--The header-->
+    <mat-card-title>SIGN UP</mat-card-title>
+    <br />
+    <mat-divider></mat-divider>
+    <br />
+
+    <!--The text fields-->
+    <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+      <!--Email-->
+      <mat-card-content>
+        <mat-form-field class="sign-in-text-box" appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input
+            matInput
+            placeholder="example@email.com"
+            ngModel
+            name="emailInput"
+            required
+          />
+          <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <!--Username-->
+      <mat-card-content>
+        <mat-form-field class="sign-in-text-box" appearance="fill">
+          <mat-label>Enter a username</mat-label>
+          <input matInput name="usernameInput" ngModel required />
+        </mat-form-field>
+      </mat-card-content>
+      <!--Password-->
+      <mat-card-content>
+        <mat-form-field class="sign-in-text-box" appearance="fill">
+          <mat-label>Enter your password</mat-label>
+          <input
+            matInput
+            name="passwordInput"
+            ngModel
+            required
+            [type]="hide ? 'password' : 'text'"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </mat-card-content>
+
+      <!--The buttons-->
+      <mat-card-actions>
+        <button mat-raised-button type="submit" color="primary">Sign Up</button>
+      </mat-card-actions>
+    </form>
+    <mat-card-actions>
+      <mat-card-footer>Have an account already?</mat-card-footer>
+      <br />
+      <button mat-button [routerLink]="['/login']">Log-in</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<router-outlet></router-outlet>
